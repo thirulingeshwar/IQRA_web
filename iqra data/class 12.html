@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Class 12 — IQRA International Elite Program</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+:root{
+ --deep:#0b1f3b;
+ --royal:#17396d;
+ --gold:#ffd674;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+ background:#f4f6ff;
+ font-family:Poppins,sans-serif;
+ color:#2c2c2c;
+ overflow-x:hidden;
+}
+
+/********************************************
+ HERO — CLASS 12 PREMIUM CLASSROOM
+********************************************/
+.hero{
+ width:100%;
+ height:100vh;
+ background:url("https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg")
+ center/cover no-repeat;
+ position:relative;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+.hero::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(
+ 180deg,
+ rgba(0,0,0,.35),
+ rgba(0,0,0,.55),
+ rgba(10,25,55,.9)
+);
+}
+
+.hero-content{
+ position:relative;
+ text-align:center;
+ color:white;
+ width:92%;
+ max-width:900px;
+ transform:translateY(20px);
+ opacity:0;
+ animation:fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp{
+ to{opacity:1;transform:translateY(0);}
+}
+
+.hero-badge{
+ background:rgba(255,255,255,.15);
+ border:1px solid rgba(255,255,255,.4);
+ backdrop-filter:blur(12px);
+ padding:8px 18px;
+ border-radius:50px;
+ margin-bottom:10px;
+}
+
+.hero h1{
+ font-family:"Playfair Display";
+ font-size:3.6rem;
+}
+.hero p{
+ font-size:1.15rem;
+ opacity:.95;
+}
+
+/********************************************
+ CONTENT CARD
+********************************************/
+.container{
+ max-width:1100px;
+ margin:auto;
+ padding:40px 22px;
+}
+
+.card{
+ background:white;
+ border-radius:28px;
+ padding:36px;
+ border:1px solid rgba(0,0,0,.1);
+ box-shadow:0 35px 80px rgba(0,0,0,.15);
+ opacity:0;
+ transform:translateY(20px);
+ animation:drop .8s ease .2s forwards;
+}
+
+@keyframes drop{
+ to{opacity:1;transform:translateY(0);}
+}
+
+/********************************************
+ TITLES
+********************************************/
+.section-title{
+ font-size:1.6rem;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ margin-top:25px;
+ font-weight:700;
+ color:var(--royal);
+}
+
+.section-title i{
+ color:var(--gold);
+ font-size:1.3rem;
+}
+
+ul{
+ margin-top:10px;
+ padding-left:18px;
+}
+ul li{margin-bottom:7px;}
+p{margin-top:5px;line-height:1.75;}
+
+/********************************************
+ HIGHLIGHTS
+********************************************/
+.highlight{
+ background:#eaf0ff;
+ padding:13px 14px;
+ border-radius:14px;
+ border-left:6px solid var(--royal);
+ margin:7px 0;
+ font-size:.97rem;
+ box-shadow:0 10px 26px rgba(0,0,0,.08);
+}
+
+/********************************************
+ WHATSAPP FLOAT BUTTON
+********************************************/
+.whatsapp-btn{
+ position:fixed;
+ right:22px;
+ bottom:22px;
+ background:#25D366;
+ color:white;
+ width:62px;
+ height:62px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:2rem;
+ box-shadow:0 18px 45px rgba(0,0,0,.25);
+ transition:.25s;
+ z-index:999;
+}
+.whatsapp-btn:hover{
+ transform:scale(1.05) translateY(-2px);
+ background:#1ebe5b;
+}
+
+/********************************************
+ MOBILE
+********************************************/
+@media(max-width:768px){
+ .hero h1{font-size:2.6rem;}
+ .hero p{font-size:1rem;}
+ .card{padding:24px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+ <div class="hero-content">
+  <span class="hero-badge">IQRA</span>
+  <h1>Class 12 Tuition</h1>
+  <p>Focused • Powerful • Board Exam Ready</p>
+ </div>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+<div class="card">
+
+<h2 class="section-title">
+ <i class="fa-solid fa-graduation-cap"></i> Overview
+</h2>
+<p>
+Focused training for board exams and future academic success.
+</p>
+
+<h2 class="section-title">
+ <i class="fa-solid fa-layer-group"></i> Streams Offered
+</h2>
+
+<ul>
+ <li>Science</li>
+ <li>Commerce</li>
+</ul>
+
+<h2 class="section-title">
+ <i class="fa-solid fa-star"></i> Course Highlights
+</h2>
+
+<div class="highlight">✔ Board exam excellence</div>
+<div class="highlight">✔ Competitive exam support</div>
+<div class="highlight">✔ Answer presentation skills</div>
+<div class="highlight">✔ Full syllabus tests</div>
+<div class="highlight">✔ Personal academic mentoring</div>
+
+<h2 class="section-title">
+ <i class="fa-solid fa-check-circle"></i> Common Features
+</h2>
+
+<!-- right column (on wide screens) contains CTAs -->
+<a href="index.html#courses" class="btn outline">
+ <i class="fa-solid fa-arrow-left"></i>
+ Back to Courses
+</a>
+
+<a href="e-mail-send.html" class="btn" target="_blank">
+  <i class="fa-solid fa-calendar-check"></i>
+  Book Free Demo Class
+</a>
+<style>
+/* CTA BUTTON */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  background:linear-gradient(90deg,var(--royal),var(--deep));
+  color:#fff;
+  text-decoration:none;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 10px 30px rgba(10,25,55,.15);
+  font-weight:600;
+  transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;
+  margin-top:14px;
+}
+.btn i{font-size:1.05rem;}
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 48px rgba(10,25,55,.2);
+  opacity:.98;
+}
+.btn:active{transform:translateY(-1px);}
+
+/* small/outline variants */
+.btn.small{padding:8px 12px;border-radius:10px;font-size:.95rem;}
+.btn.outline{
+  background:transparent;
+  color:var(--royal);
+  border:1px solid rgba(23,57,109,.12);
+  box-shadow:none;
+}
+
+/* Card link spacing & responsive tweak */
+.card .btn{display:inline-flex;white-space:nowrap;}
+@media(max-width:480px){
+  .btn{padding:10px 14px;font-size:.95rem;}
+}
+
+/* Minor polish */
+.section-title + p{margin-top:10px;}
+.highlight + .highlight{margin-top:8px;}
+</style>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp-btn" href="https://whatsapp.com/channel/0029VaHu40R0QeajFhnv1f2U" target="_blank">
+ <i class="fab fa-whatsapp"></i>
+</a>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp-btn"
+ href="https://whatsapp.com/channel/0029VaHu40R0QeajFhnv1f2U"
+ target="_blank">
+ <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>

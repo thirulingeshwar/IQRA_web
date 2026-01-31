@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Class 5 — IQRA International Elite Program</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* THEME – CLASS 5 ROYAL PURPLE */
+:root{
+ --royal:#3d1466;
+ --deep:#5d1d9e;
+ --gold:#f3c96b;
+ --bg:#f5efff;
+ --card-radius:28px;
+ --gap:18px;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+ background:var(--bg);
+ font-family:Poppins,sans-serif;
+ color:#2c2c2c;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+}
+
+/* FLUID CONTAINER */
+.container{
+ max-width:1200px;
+ margin:auto;
+ padding:clamp(16px,2.5vw,40px);
+}
+
+/********************************************
+ HERO — responsive cinematic
+********************************************/
+.hero{
+ width:100%;
+ min-height:60vh;              /* ensures smaller screens still see content */
+ height:clamp(60vh,75vh,100vh);
+ background:url("https://images.pexels.com/photos/5905925/pexels-photo-5905925.jpeg") center/cover no-repeat;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ position:relative;
+ padding:clamp(18px,4vw,48px);
+}
+
+/* darker overlay */
+.hero::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(180deg,
+ rgba(0,0,0,.28) 0%,
+ rgba(0,0,0,.45) 35%,
+ rgba(61,20,102,.92) 100%);
+}
+
+/* hero content scales */
+.hero-content{
+ position:relative;
+ text-align:center;
+ color:white;
+ width:min(92%,900px);
+ animation:fadeUp .8s ease forwards;
+ transform:translateY(20px);
+ opacity:0;
+ padding:clamp(8px,2vw,20px);
+}
+
+/* fluid type with clamp */
+.hero-badge{
+ display:inline-block;
+ background:rgba(255,255,255,.12);
+ border:1px solid rgba(255,255,255,.35);
+ padding:6px 14px;
+ border-radius:999px;
+ font-size:clamp(.78rem,.9vw,.95rem);
+ letter-spacing:.6px;
+ margin-bottom:10px;
+}
+
+.hero h1{
+ font-family:"Playfair Display",serif;
+ font-size:clamp(1.8rem,4.6vw,3.8rem);
+ margin-bottom:8px;
+ line-height:1.03;
+}
+
+.hero p{
+ font-size:clamp(.95rem,1.6vw,1.2rem);
+ opacity:.98;
+ margin-top:6px;
+}
+
+/* animation */
+@keyframes fadeUp{
+ to{opacity:1;transform:translateY(0);}
+}
+
+/********************************************
+ CARD
+********************************************/
+.card{
+ background:white;
+ border-radius:var(--card-radius);
+ padding:clamp(18px,2.8vw,36px);
+ border:1px solid rgba(0,0,0,.06);
+ box-shadow:0 28px 60px rgba(0,0,0,.12);
+ transform:translateY(20px);
+ opacity:0;
+ animation:smoothDrop .7s ease .25s forwards;
+}
+
+@keyframes smoothDrop{
+ to{transform:translateY(0);opacity:1;}
+}
+
+/********************************************
+ TITLES & TEXT
+********************************************/
+.section-title{
+ font-size:clamp(1.05rem,1.6vw,1.6rem);
+ display:flex;
+ align-items:center;
+ gap:12px;
+ margin-top:20px;
+ font-weight:700;
+ color:var(--deep);
+}
+
+.section-title i{
+ color:var(--gold);
+ font-size:1.15rem;
+}
+
+p{margin-top:8px;line-height:1.75;}
+ul{margin-top:10px;padding-left:20px;}
+ul li{margin-bottom:8px;}
+
+/********************************************
+ HIGHLIGHTS
+********************************************/
+.highlight{
+ background:#f7ecff;
+ padding:10px 12px;
+ border-radius:12px;
+ border-left:6px solid var(--deep);
+ margin:8px 0;
+ font-size:clamp(.9rem,1.4vw,1rem);
+ box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+/********************************************
+ BUTTON (single, responsive)
+********************************************/
+.btn{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ text-decoration:none;
+ background:linear-gradient(90deg,var(--royal),var(--deep));
+ padding:clamp(10px,1.6vw,14px) clamp(12px,2vw,20px);
+ border-radius:12px;
+ color:#fff;
+ font-weight:700;
+ margin-top:14px;
+ box-shadow:0 12px 34px rgba(0,0,0,.14);
+ transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;
+ white-space:nowrap;
+}
+.btn i{font-size:1rem;}
+.btn:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.18);opacity:.98;}
+.btn:active{transform:translateY(-1px);}
+
+/* small/outline variants */
+.btn.small{padding:8px 12px;border-radius:10px;font-size:.95rem;}
+.btn.outline{
+  background:transparent;
+  color:var(--royal);
+  border:1px solid rgba(23,57,109,.12);
+  box-shadow:none;
+}
+
+/* ensure buttons wrap on very small screens */
+.card .btn{display:inline-flex;}
+
+/********************************************
+ WHATSAPP FLOAT - scaled on small
+********************************************/
+.whatsapp-btn{
+ position:fixed;
+ right:18px;
+ bottom:18px;
+ background:#25D366;
+ color:white;
+ width:56px;
+ height:56px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:1.6rem;
+ box-shadow:0 14px 36px rgba(0,0,0,.18);
+ z-index:999;
+ transition:.22s;
+}
+.whatsapp-btn:hover{transform:scale(1.06) translateY(-3px);background:#1ebe5b;}
+
+/********************************************
+ RESPONSIVE BREAKPOINTS
+********************************************/
+@media (max-width:1100px){
+ .container{padding:clamp(14px,3vw,28px);}
+ .hero{background-position:center top;}
+}
+
+@media (max-width:768px){
+ .hero{
+   min-height:55vh;
+   height:clamp(55vh,70vh,80vh);
+   background-position:center 20%;
+ }
+ .hero-content{padding:12px;}
+ .card{padding:18px;}
+ .whatsapp-btn{right:14px;bottom:14px;width:52px;height:52px;font-size:1.4rem;}
+}
+
+@media (max-width:480px){
+ .hero{min-height:48vh;height:clamp(48vh,62vh,72vh);}
+ .hero h1{font-size:clamp(1.4rem,6.6vw,2.6rem);}
+ .hero p{font-size:.95rem;}
+ .card{padding:14px;border-radius:18px;}
+ .section-title{gap:10px;font-size:1rem;}
+ .highlight{padding:10px;border-radius:10px;font-size:.94rem;}
+ .btn{padding:10px 12px;gap:8px;font-size:.95rem;}
+ .whatsapp-btn{width:48px;height:48px;font-size:1.2rem;right:12px;bottom:12px;}
+}
+
+/* very large screens */
+@media (min-width:1400px){
+ .hero h1{font-size:4.2rem;}
+ .card{padding:48px;border-radius:32px;}
+}
+</style>
+</head>
+
+<body>
+
+<!---------------- HERO ---------------->
+<section class="hero">
+ <div class="hero-content">
+   <span class="hero-badge">IQRA</span>
+   <h1>Class 5 Tuition</h1>
+   <p>Middle school readiness • Strong academics • Confident learners</p>
+ </div>
+</section>
+
+<!---------------- CONTENT ---------------->
+<div class="container">
+  <div class="card">
+
+    <h2 class="section-title">
+     <i class="fa-solid fa-graduation-cap"></i>
+     Overview
+    </h2>
+
+    <p>Prepares students for middle school with strong academic foundations.</p>
+
+    <h2 class="section-title">
+     <i class="fa-solid fa-book"></i>
+     Subjects Offered
+    </h2>
+
+    <ul>
+     <li>English</li>
+     <li>Mathematics</li>
+     <li>Science</li>
+     <li>Social Science</li>
+     <li>Tamil / Hindi</li>
+    </ul>
+
+    <h2 class="section-title">
+     <i class="fa-solid fa-star"></i>
+     Course Highlights
+    </h2>
+
+    <div class="highlight">✔ Application-based learning</div>
+    <div class="highlight">✔ Writing & presentation skills</div>
+    <div class="highlight">✔ Chapter-wise tests</div>
+    <div class="highlight">✔ Concept reinforcement</div>
+    <div class="highlight">✔ Confidence building</div>
+
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a href="index.html#courses" class="btn outline">
+       <i class="fa-solid fa-arrow-left"></i> Back to Courses
+      </a>
+
+      <a href="e-mail-send.html" class="btn" target="_blank">
+        <i class="fa-solid fa-calendar-check"></i> Book Free Demo Class
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!---------------- WHATSAPP BUTTON ---------------->
+<a class="whatsapp-btn"
+   href="https://whatsapp.com/channel/0029VaHu40R0QeajFhnv1f2U"
+   target="_blank" aria-label="WhatsApp">
+ <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>

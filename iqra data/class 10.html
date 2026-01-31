@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Class 10 — IQRA International Elite Program</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+ --royal:#0f1b37;
+ --deep:#0b1630;
+ --crimson:#b10f1c;
+ --gold:#ffcf6b;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+body{
+ background:#f7f8ff;
+ color:#2c2c2c;
+ overflow-x:hidden;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+}
+
+/* fluid typography */
+h1{font-family:"Playfair Display",serif;}
+.hero h1{font-size:clamp(2rem,4.6vw,3.6rem);}
+.hero p{font-size:clamp(0.95rem,1.6vw,1.15rem);}
+.section-title{font-size:clamp(1.1rem,1.6vw,1.6rem);}
+
+/********************************************
+ HERO — BOARD EXAM VIBE
+********************************************/
+.hero{
+ width:100%;
+ min-height:60vh;
+ height:auto;
+ padding:6vh 0;
+ background-image:url("https://images.pexels.com/photos/5212339/pexels-photo-5212339.jpeg");
+ background-position:center;
+ background-size:cover;
+ background-repeat:no-repeat;
+ position:relative;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+/* darker overlay for readability on all screen sizes */
+.hero::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(180deg,
+ rgba(0,0,0,.25) 0%,
+ rgba(0,0,0,.45) 35%,
+ rgba(15,27,55,.85) 100%);
+}
+
+/* center content and keep it responsive */
+.hero-content{
+ position:relative;
+ text-align:center;
+ color:white;
+ width:92%;
+ max-width:900px;
+ animation:fadeUp .9s ease forwards;
+ transform:translateY(20px);
+ opacity:0;
+ padding:24px;
+ border-radius:16px;
+ backdrop-filter: none;
+}
+@keyframes fadeUp{ to{opacity:1;transform:translateY(0);} }
+
+.hero-badge{
+ background:rgba(255,255,255,.08);
+ border:1px solid rgba(255,255,255,.18);
+ padding:7px 16px;
+ border-radius:999px;
+ margin-bottom:8px;
+ display:inline-block;
+}
+
+/********************************************
+ CONTENT CARD
+********************************************/
+.container{
+ max-width:1100px;
+ margin:20px auto 80px;
+ padding:20px;
+ width:95%;
+}
+
+.card{
+ background:white;
+ border-radius:20px;
+ padding:28px;
+ border:1px solid rgba(0,0,0,.06);
+ box-shadow:0 24px 60px rgba(0,0,0,.08);
+ animation:smooth .8s ease .2s forwards;
+ opacity:0;
+ transform:translateY(20px);
+}
+@keyframes smooth{to{opacity:1;transform:translateY(0);}}
+
+/********************************************
+ TITLES
+********************************************/
+.section-title{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ margin-top:18px;
+ font-weight:700;
+ color:var(--royal);
+}
+.section-title i{color:var(--gold);}
+ul{margin-top:10px;padding-left:20px;}
+ul li{margin-bottom:8px;}
+p{margin-top:8px;line-height:1.7;}
+
+/********************************************
+ HIGHLIGHTS
+********************************************/
+.highlight{
+ background:#ffeeef;
+ padding:12px 14px;
+ border-radius:12px;
+ border-left:6px solid var(--crimson);
+ margin:8px 0;
+ font-size:.98rem;
+ box-shadow:0 8px 22px rgba(0,0,0,.06);
+}
+
+/********************************************
+ CTA BUTTON
+********************************************/
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  background:linear-gradient(90deg,var(--royal),var(--deep));
+  color:#fff;
+  text-decoration:none;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 10px 30px rgba(10,25,55,.12);
+  font-weight:600;
+  transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;
+  margin-top:14px;
+}
+.btn i{font-size:1.05rem;}
+.btn:hover{ transform:translateY(-3px); box-shadow:0 18px 44px rgba(10,25,55,.18); }
+.btn:active{transform:translateY(-1px);}
+
+/* outline variant for secondary CTA */
+.btn.outline{
+  background:transparent;
+  color:var(--royal);
+  border:1px solid rgba(15,27,55,.08);
+  box-shadow:none;
+}
+.btn.outline:hover{ transform:translateY(-3px); box-shadow:0 8px 22px rgba(10,25,55,.06); }
+
+/********************************************
+ WHATSAPP FLOAT BUTTON
+********************************************/
+.whatsapp-btn{
+ position:fixed;
+ right:22px;
+ bottom:22px;
+ background:#25D366;
+ color:white;
+ width:62px;
+ height:62px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:2rem;
+ box-shadow:0 18px 45px rgba(0,0,0,.25);
+ transition:.18s;
+ z-index:999;
+}
+.whatsapp-btn:hover{ transform:scale(1.05) translateY(-2px); background:#1ebe5b; }
+
+.pull-right {
+  display:inline-flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+
+/********************************************
+ RESPONSIVE TWEAKS
+********************************************/
+@media (min-width:1400px){
+ .container{width:88%;}
+ .card{padding:36px;border-radius:28px;}
+ .hero-content{padding:32px;}
+}
+
+@media (max-width:1024px){
+ .hero{min-height:52vh;padding:5vh 0;}
+ .card{padding:24px;}
+ .hero-content{transform:none;}
+}
+
+@media (max-width:768px){
+ .hero{min-height:48vh;padding:5vh 0;}
+ .hero h1{font-size:clamp(1.8rem,6vw,2.6rem);}
+ .hero p{font-size:1rem;}
+ .card{padding:20px;border-radius:18px;}
+ .hero-content{width:94%;}
+ .whatsapp-btn{right:18px;bottom:18px;width:56px;height:56px;font-size:1.8rem;}
+}
+
+@media (max-width:480px){
+ .container{margin:14px auto 70px;padding:12px;}
+ .hero{min-height:42vh;padding:4vh 0;}
+ .hero-content{padding:18px;border-radius:12px;}
+ .card{padding:16px;}
+ .section-title{gap:8px;}
+ .btn{padding:10px 14px;font-size:.95rem;border-radius:10px;}
+ .whatsapp-btn{right:12px;bottom:12px;width:52px;height:52px;font-size:1.6rem;}
+}
+
+/* accessibility */
+a.btn, .whatsapp-btn {touch-action:manipulation; -webkit-tap-highlight-color: transparent;}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero: Class 10 Tuition">
+ <div class="hero-content">
+   <span class="hero-badge">IQRA</span>
+   <h1>Class 10 Tuition</h1>
+   <p>Board Excellence • Smart Guidance • Guaranteed Confidence</p>
+ </div>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="card">
+
+    <h2 class="section-title">
+     <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Overview
+    </h2>
+    <p>
+    Complete board exam-focused coaching with result-oriented teaching.
+    </p>
+
+    <h2 class="section-title">
+     <i class="fa-solid fa-book" aria-hidden="true"></i> Subjects Offered
+    </h2>
+
+    <ul>
+     <li>Mathematics</li>
+     <li>Science</li>
+     <li>English</li>
+     <li>Social Science</li>
+     <li>Tamil / Hindi</li>
+    </ul>
+
+    <h2 class="section-title">
+     <i class="fa-solid fa-star" aria-hidden="true"></i> Course Highlights
+    </h2>
+
+    <div class="highlight">✔ High-scoring strategies</div>
+    <div class="highlight">✔ Full syllabus revision</div>
+    <div class="highlight">✔ Mock exams</div>
+    <div class="highlight">✔ Personal mentoring</div>
+    <div class="highlight">✔ Exam readiness</div>
+
+    <div class="pull-right">
+      <a href="e-mail-send.html" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Book Free Demo Class">
+        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+        Book Free Demo Class
+      </a>
+
+      <!-- right column (on wide screens) contains CTAs -->
+      <a href="index.html#courses" class="btn outline">
+       <i class="fa-solid fa-arrow-left"></i>
+       Back to Courses
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp-btn" href="https://whatsapp.com/channel/0029VaHu40R0QeajFhnv1f2U" target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp channel">
+ <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+</body>
+</html>

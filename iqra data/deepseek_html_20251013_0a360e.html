@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQRA Admin | Tron Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #00f7ff;
+            --secondary-color: #ff00e6;
+            --accent-color: #00ff9d;
+            --bg-dark: #0a0a2a;
+            --bg-darker: #000;
+            --text-light: #aaa;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .header {
+            margin-bottom: 4vh;
+        }
+
+        .title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px var(--primary-color), 0 0 30px #00d4ff;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-light);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .logo-container {
+            position: relative;
+            width: min(250px, 60vw);
+            height: min(250px, 60vw);
+            margin: 0 auto 5vh;
+        }
+
+        .logo {
+            width: min(150px, 40vw);
+            height: min(150px, 40vw);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 25px var(--primary-color), 0 0 50px #00d4ff;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-color), #00d4ff);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .loading-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            animation: spin 2s linear infinite;
+        }
+
+        .loading-ring:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-top: 3px solid var(--primary-color);
+            border-right: 3px solid #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.7);
+        }
+
+        .loading-ring:nth-child(3) {
+            width: 90%;
+            height: 90%;
+            top: 5%;
+            left: 5%;
+            border-top: 3px solid var(--secondary-color);
+            border-right: 3px solid #ff0080;
+            animation: spin 1.5s linear infinite reverse;
+            box-shadow: 0 0 20px rgba(255, 0, 230, 0.7);
+        }
+
+        .loading-ring:nth-child(4) {
+            width: 100%;
+            height: 100%;
+            border-top: 3px solid var(--accent-color);
+            border-right: 3px solid #00ff66;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.7);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: min(40px, 4vw);
+            margin-top: 5vh;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: min(18px, 3vw) min(35px, 5vw);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            min-width: min(220px, 70vw);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.4), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            background: rgba(0, 247, 255, 0.1);
+            box-shadow: 0 0 20px var(--primary-color), 0 0 40px rgba(0, 247, 255, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:nth-child(2) {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn:nth-child(2):hover {
+            background: rgba(255, 0, 230, 0.1);
+            box-shadow: 0 0 20px var(--secondary-color), 0 0 40px rgba(255, 0, 230, 0.5);
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+        }
+
+        .footer {
+            margin-top: 8vh;
+            padding: 20px;
+            color: #666;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(0, 247, 255, 0.2);
+            line-height: 1.5;
+        }
+
+        .footer span {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 247, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 247, 255, 0.1) 1px, transparent 1px);
+            background-size: min(50px, 10vw) min(50px, 10vw);
+            z-index: -1;
+            animation: moveGrid 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(min(50px, 10vw), min(50px, 10vw)); }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: min(4px, 1vw);
+            height: min(4px, 1vw);
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            
+            .header {
+                margin-bottom: 3vh;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .btn {
+                width: 80%;
+                min-width: auto;
+                padding: 15px 20px;
+            }
+            
+            .logo-container {
+                margin-bottom: 4vh;
+            }
+            
+            .footer {
+                margin-top: 5vh;
+                padding: 15px;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .title {
+                letter-spacing: 2px;
+            }
+            
+            .subtitle {
+                letter-spacing: 1px;
+            }
+            
+            .btn {
+                width: 90%;
+                padding: 12px 15px;
+            }
+            
+            .logo-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 60px 40px;
+            }
+            
+            .header {
+                margin-bottom: 5vh;
+            }
+            
+            .logo-container {
+                margin-bottom: 6vh;
+            }
+            
+            .button-container {
+                margin-top: 6vh;
+            }
+            
+            .footer {
+                margin-top: 10vh;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .btn:hover {
+                background: transparent;
+                box-shadow: none;
+                transform: none;
+            }
+            
+            .btn:active {
+                background: rgba(0, 247, 255, 0.1);
+                box-shadow: 0 0 20px var(--primary-color), 0 0 40px rgba(0, 247, 255, 0.5);
+            }
+            
+            .btn:nth-child(2):active {
+                background: rgba(255, 0, 230, 0.1);
+                box-shadow: 0 0 20px var(--secondary-color), 0 0 40px rgba(255, 0, 230, 0.5);
+            }
+        }
+
+        /* Landscape orientation for mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                margin-bottom: 2vh;
+            }
+            
+            .logo-container {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 2vh;
+            }
+            
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .button-container {
+                margin-top: 2vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-lines"></div>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="title">IQRA Admin</h1>
+            <p class="subtitle">Made by HMI</p>
+        </div>
+        
+        <div class="logo-container">
+            <div class="logo">
+                <!-- Using an external logo image -->
+                <img src="https://i.ibb.co/pBVf3Rb2/cropped-circle-image.png" alt="IQRA Logo" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+                <!-- Fallback SVG logo in case the image fails to load -->
+                <svg id="fallback-logo" style="display:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00f7ff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="url(#grad)" />
+                    <path d="M30,35 L45,35 L45,50 L60,50 L60,65 L30,65 Z" fill="#0a0a2a" />
+                    <path d="M50,30 L65,30 L65,45 L50,45 Z" fill="#0a0a2a" />
+                    <path d="M35,55 L50,55 L50,70 L35,70 Z" fill="#0a0a2a" />
+                    <text x="50" y="85" text-anchor="middle" fill="#0a0a2a" font-family="Arial" font-size="14" font-weight="bold">IQRA</text>
+                </svg>
+            </div>
+            <div class="loading-ring"></div>
+            <div class="loading-ring"></div>
+            <div class="loading-ring"></div>
+        </div>
+        
+        <div class="button-container">
+            <button class="btn" id="updateCourses">
+                <i class="fas fa-sync-alt"></i> Update Courses
+            </button>
+            <button class="btn" id="updateUpcoming">
+                <i class="fas fa-calendar-plus"></i> Update Upcoming Courses
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = window.innerWidth < 768 ? 40 : 60;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 15}s`;
+            particle.style.animationDuration = `${8 + Math.random() * 12}s`;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Handle orientation change
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        });
+    </script>
+</body>
+</html>

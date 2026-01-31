@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Class 6 — IQRA International Elite Program</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* THEME – CLASS 6 EMERALD ROYAL */
+:root{
+  --royal:#0d473d;
+  --deep:#136e5a;
+  --gold:#f5d27b;
+  --bg:#e9fff7;
+  --max-width:1200px;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  background:var(--bg);
+  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  color:#2c2c2c;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size:16px;
+  line-height:1.45;
+  overflow-x:hidden;
+}
+
+/********************************************
+ HERO — CINEMATIC (responsive)
+********************************************/
+.hero{
+  width:100%;
+  height:min(100vh,900px);
+  min-height:60vh;
+  background:url("https://images.pexels.com/photos/5905440/pexels-photo-5905440.jpeg") center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(20px,4vw,60px);
+}
+
+/* disable parallax on small devices */
+@media (max-width:768px){
+  .hero{background-attachment:scroll;background-position:center 40%;}
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,
+    rgba(0,0,0,.32) 0%,
+    rgba(0,0,0,.48) 35%,
+    rgba(13,71,61,.9) 100%);
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  text-align:center;
+  color:white;
+  width:92%;
+  max-width:900px;
+  animation:fadeUp .9s ease forwards;
+  transform:translateY(20px);
+  opacity:0;
+  padding:clamp(12px,2vw,28px);
+}
+
+/* responsive type */
+.hero-badge{
+  display:inline-block;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.35);
+  backdrop-filter:blur(10px);
+  padding:8px 18px;
+  border-radius:999px;
+  font-size:clamp(.75rem,.9vw,1rem);
+  letter-spacing:.6px;
+  margin-bottom:10px;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(1.9rem,4.5vw,3.6rem);
+  margin-bottom:8px;
+  line-height:1.02;
+}
+
+.hero p{
+  font-size:clamp(.95rem,2.3vw,1.2rem);
+  opacity:.95;
+  margin-top:6px;
+}
+
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0);}
+}
+
+/********************************************
+ CONTENT CARD
+********************************************/
+.container{
+  max-width:var(--max-width);
+  margin:auto;
+  padding:clamp(16px,3vw,40px);
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  padding:clamp(18px,2.6vw,36px);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 28px 70px rgba(0,0,0,.12);
+  transform:translateY(20px);
+  opacity:0;
+  animation:smoothDrop .8s ease .3s forwards;
+}
+
+@keyframes smoothDrop{
+  to{transform:translateY(0);opacity:1;}
+}
+
+/********************************************
+ TITLES
+********************************************/
+.section-title{
+  font-size:clamp(1.05rem,1.6vw,1.6rem);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:18px;
+  font-weight:700;
+  color:var(--deep);
+}
+
+.section-title i{
+  color:var(--gold);
+  font-size:1.2rem;
+}
+
+p{margin-top:8px;line-height:1.6;}
+ul{margin-top:10px;padding-left:20px;}
+ul li{margin-bottom:8px;}
+
+/********************************************
+ HIGHLIGHTS
+********************************************/
+.highlight{
+  background:#e6fff7;
+  padding:11px 14px;
+  border-radius:12px;
+  border-left:6px solid var(--deep);
+  margin:8px 0;
+  font-size:clamp(.9rem,1.4vw,1rem);
+  box-shadow:0 10px 26px rgba(0,0,0,.06);
+}
+
+/********************************************
+ BUTTON
+********************************************/
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--royal),var(--deep));
+  padding:12px 18px;
+  border-radius:12px;
+  color:#fff;
+  font-weight:700;
+  margin-top:16px;
+  box-shadow:0 10px 30px rgba(10,25,55,.12);
+  transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;
+  white-space:nowrap;
+  flex-wrap:wrap;
+  font-size:clamp(.9rem,1.6vw,1rem);
+}
+.btn i{font-size:1.05rem;}
+.btn:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(10,25,55,.18);opacity:.98;}
+.btn:active{transform:translateY(-1px);}
+
+/* small/outline variants */
+.btn.small{padding:8px 12px;border-radius:10px;font-size:.95rem;}
+.btn.outline{
+  background:transparent;
+  color:var(--royal);
+  border:1px solid rgba(23,57,109,.12);
+  box-shadow:none;
+}
+
+/* ensure buttons wrap nicely on narrow screens */
+.card .btn{display:inline-flex;}
+
+/********************************************
+ WHATSAPP FLOAT
+********************************************/
+.whatsapp-btn{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background:#25D366;
+  color:white;
+  width:clamp(48px,6.5vw,64px);
+  height:clamp(48px,6.5vw,64px);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:clamp(1.1rem,2.4vw,2rem);
+  box-shadow:0 18px 45px rgba(0,0,0,.22);
+  z-index:999;
+  transition:.18s;
+}
+.whatsapp-btn:hover{transform:scale(1.06) translateY(-3px);background:#1ebe5b;}
+
+/********************************************
+ RESPONSIVE BREAKPOINTS
+********************************************/
+@media (max-width:1024px){
+  .card{box-shadow:0 22px 56px rgba(0,0,0,.1);}
+  .hero{min-height:55vh;}
+}
+
+@media (max-width:768px){
+  .container{padding:18px;}
+  .card{padding:18px;border-radius:16px;}
+  .section-title{gap:10px;}
+  .hero h1{font-size:clamp(1.6rem,6vw,2.6rem);}
+  .hero p{font-size:.98rem;}
+  .hero-content{width:100%;}
+}
+
+@media (max-width:480px){
+  .hero{padding:14px;min-height:50vh;}
+  .hero-badge{padding:6px 12px;font-size:.8rem;}
+  .card{padding:14px;}
+  .section-title{font-size:1rem;}
+  .btn{padding:10px 12px;gap:8px;font-size:.92rem;}
+  .highlight{padding:10px;}
+  .whatsapp-btn{right:12px;bottom:12px;width:52px;height:52px;font-size:1.25rem;}
+}
+
+/* Minor polish */
+.section-title + p{margin-top:10px;}
+.highlight + .highlight{margin-top:8px;}
+</style>
+</head>
+
+<body>
+
+<!---------------- HERO ---------------->
+<section class="hero" aria-label="Class 6 hero">
+  <div class="hero-content">
+    <span class="hero-badge">IQRA</span>
+    <h1>Class 6 Tuition</h1>
+    <p>Concept clarity • Smart thinking • Strong foundation</p>
+  </div>
+</section>
+
+<!---------------- CONTENT ---------------->
+<div class="container">
+  <div class="card">
+
+    <h2 class="section-title">
+      <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+      Overview
+    </h2>
+
+    <p>
+      Focuses on clear concept building across all subjects.
+    </p>
+
+    <h2 class="section-title">
+      <i class="fa-solid fa-book" aria-hidden="true"></i>
+      Subjects Offered
+    </h2>
+
+    <ul>
+      <li>English</li>
+      <li>Mathematics</li>
+      <li>Science</li>
+      <li>Social Science</li>
+      <li>Tamil / Hindi</li>
+    </ul>
+
+    <h2 class="section-title">
+      <i class="fa-solid fa-star" aria-hidden="true"></i>
+      Course Highlights
+    </h2>
+
+    <div class="highlight">✔ Step-by-step explanations</div>
+    <div class="highlight">✔ Grammar enhancement</div>
+    <div class="highlight">✔ Numerical problem solving</div>
+    <div class="highlight">✔ Doubt-clearing sessions</div>
+    <div class="highlight">✔ Continuous evaluation</div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:12px;">
+      <a href="index.html#courses" class="btn" aria-label="Back to Courses">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Back to Courses
+      </a>
+
+      <a href="e-mail-send.html" class="btn" target="_blank" aria-label="Book Free Demo Class">
+        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+        Book Free Demo Class
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!---------------- WHATSAPP BUTTON ---------------->
+<a class="whatsapp-btn"
+   href="https://whatsapp.com/channel/0029VaHu40R0QeajFhnv1f2U"
+   target="_blank"
+   aria-label="Open WhatsApp channel">
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+</body>
+</html>
